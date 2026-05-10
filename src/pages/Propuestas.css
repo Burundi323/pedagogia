@@ -1,0 +1,109 @@
+.prop-hero {
+  background: var(--navy-dark); padding: calc(var(--nav-h) + 64px) 0 56px;
+  position: relative; overflow: hidden;
+}
+.prop-hero::before {
+  content: ''; position: absolute; width: 500px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,84,26,0.14), transparent 65%);
+  top: -80px; right: -80px; pointer-events: none;
+}
+.prop-hero h1 {
+  font-family: var(--font-serif); font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 900; color: var(--white); margin-bottom: 12px; position: relative;
+}
+.prop-hero h1 em { color: var(--orange); font-style: italic; }
+.prop-hero p { color: rgba(255,255,255,0.45); font-size: 0.95rem; position: relative; max-width: 500px; }
+
+.prop-section { padding: 64px 0 80px; background: var(--white); }
+
+.prop-filters {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 40px;
+}
+.filter-btn {
+  background: transparent; border: 1.5px solid var(--gray-200);
+  color: var(--gray-600); padding: 7px 18px; border-radius: 100px;
+  font-family: var(--font-body); font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; transition: var(--t);
+}
+.filter-btn:hover { border-color: var(--orange); color: var(--orange); }
+.filter-btn.active { background: var(--navy); color: #fff; border-color: var(--navy); }
+
+.prop-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+}
+.prop-item {
+  padding: 28px 24px; border-radius: var(--radius);
+  border: 1.5px solid var(--gray-200); cursor: pointer;
+  transition: var(--t); position: relative; overflow: hidden;
+}
+.prop-item::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 3px; background: var(--orange);
+  transform: scaleX(0); transform-origin: left; transition: transform var(--t);
+}
+.prop-item:hover {
+  border-color: var(--orange-border); transform: translateY(-5px);
+  box-shadow: 0 16px 40px rgba(212,84,26,0.1);
+}
+.prop-item:hover::after { transform: scaleX(1); }
+
+.prop-item-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.prop-item-icon { font-size: 2.2rem; }
+.prop-item-cat {
+  font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--orange);
+  background: var(--orange-light); padding: 3px 10px; border-radius: 100px;
+}
+.prop-item-title {
+  font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 10px; line-height: 1.3;
+}
+.prop-item-desc { font-size: 0.82rem; color: var(--gray-600); line-height: 1.65; margin-bottom: 16px; }
+.prop-item-more {
+  font-size: 0.75rem; font-weight: 700; color: var(--orange);
+  letter-spacing: 0.05em; transition: gap var(--t);
+}
+
+/* MODAL */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(10,15,40,0.75);
+  z-index: 200; display: flex; align-items: center; justify-content: center;
+  padding: 2rem; animation: fadein 0.2s ease;
+}
+@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+
+.modal {
+  background: var(--white); max-width: 520px; width: 100%;
+  padding: 3rem; position: relative; border-radius: var(--radius);
+  border-top: 4px solid var(--orange);
+  animation: slideup 0.25s ease;
+}
+@keyframes slideup {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+.modal-close {
+  position: absolute; top: 1rem; right: 1rem;
+  background: none; border: none; font-size: 1.3rem;
+  cursor: pointer; color: var(--gray-600); transition: color var(--t);
+  width: 32px; height: 32px; display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+}
+.modal-close:hover { color: var(--navy); background: var(--gray-100); }
+.modal-icon { font-size: 2.8rem; margin-bottom: 10px; }
+.modal-cat {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 8px;
+}
+.modal-title {
+  font-family: var(--font-serif); font-size: 1.7rem; font-weight: 900;
+  color: var(--navy); margin-bottom: 14px;
+}
+.modal-body { font-size: 0.88rem; color: var(--gray-600); line-height: 1.8; }
+
+@media (max-width: 900px) {
+  .prop-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .prop-grid { grid-template-columns: 1fr; }
+}

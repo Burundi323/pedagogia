@@ -1,0 +1,104 @@
+.qs-hero {
+  background: var(--navy-dark); padding: calc(var(--nav-h) + 64px) 0 56px;
+  position: relative; overflow: hidden;
+}
+.qs-hero::before {
+  content: ''; position: absolute; width: 600px; height: 400px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(212,84,26,0.14), transparent 65%);
+  top: -80px; right: -80px; pointer-events: none;
+}
+.qs-hero h1 {
+  font-family: var(--font-serif); font-size: clamp(2rem, 4.5vw, 3.5rem);
+  font-weight: 900; color: var(--white); margin-bottom: 12px; position: relative;
+}
+.qs-hero h1 em { color: var(--orange); font-style: italic; }
+.qs-hero p { color: rgba(255,255,255,0.45); font-size: 0.95rem; position: relative; max-width: 480px; }
+
+/* ABOUT */
+.qs-about { padding: 80px 0; background: var(--white); }
+.qs-about-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 56px; align-items: center; }
+
+.qs-mosaic {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr); gap: 6px;
+  height: 360px; border-radius: var(--radius); overflow: hidden;
+}
+.qm-cell { border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+.qm--0 { background: var(--navy); }
+.qm--1 { background: var(--orange); }
+.qm--2 { background: var(--gold); }
+.qm--3 { background: #2a7a8c; }
+.qm--4 { background: var(--navy-dark); }
+.qm-center { text-align: center; }
+.qm-label {
+  font-family: var(--font-serif); font-size: 1.1rem; font-style: italic;
+  color: rgba(255,255,255,0.6); margin-top: 4px;
+}
+
+.qs-about-text p {
+  font-size: 0.9rem; color: var(--gray-600); line-height: 1.8; margin-top: 14px;
+}
+.qs-about-text p em { color: var(--orange); font-style: normal; font-weight: 600; }
+
+/* MISIÓN Y VISIÓN */
+.qs-mv { padding: 80px 0; background: var(--gray-100); }
+.mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.mv-card {
+  background: var(--white); padding: 40px 36px;
+  border-radius: var(--radius); border-top: 4px solid var(--orange);
+}
+.mv-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.8; margin-top: 12px; }
+.mv-card--accent { background: var(--navy); border-top-color: var(--gold); }
+.mv-card--accent p { color: rgba(255,255,255,0.55); }
+
+/* VALORES */
+.qs-valores { padding: 80px 0; background: var(--white); }
+.qs-valores-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.qs-valor {
+  padding: 28px 24px; border-radius: var(--radius);
+  border: 1.5px solid var(--gray-200); transition: var(--t);
+}
+.qs-valor:hover {
+  border-color: var(--orange-border);
+  box-shadow: 0 8px 32px rgba(212,84,26,0.08);
+  transform: translateY(-4px);
+}
+.qs-valor-icon { font-size: 1.8rem; display: block; margin-bottom: 14px; }
+.qs-valor h3 { font-family: var(--font-serif); font-size: 1rem; font-weight: 700; margin-bottom: 8px; color: var(--navy); }
+.qs-valor p { font-size: 0.82rem; color: var(--gray-600); line-height: 1.7; }
+
+/* DIRECTIVA */
+.qs-directiva { padding: 80px 0; background: var(--gray-100); }
+.directiva-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.directiva-card {
+  background: var(--white); padding: 32px 28px;
+  border-radius: var(--radius); display: flex; gap: 24px; align-items: flex-start;
+  transition: var(--t); border: 1.5px solid var(--gray-200);
+}
+.directiva-card:hover { box-shadow: 0 12px 36px rgba(0,0,0,0.08); transform: translateY(-4px); }
+.directiva-avatar {
+  width: 64px; height: 64px; border-radius: 50%; flex-shrink: 0;
+  background: var(--navy); display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-size: 1.6rem; font-weight: 900; color: #fff;
+}
+.directiva-role {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--orange); margin-bottom: 6px;
+}
+.directiva-name {
+  font-family: var(--font-serif); font-size: 1.05rem; font-weight: 700;
+  color: var(--navy); margin-bottom: 8px;
+}
+.directiva-info p { font-size: 0.82rem; color: var(--gray-600); line-height: 1.7; }
+
+@media (max-width: 900px) {
+  .qs-about-grid { grid-template-columns: 1fr; }
+  .qs-mosaic { height: 220px; }
+  .mv-grid { grid-template-columns: 1fr; }
+  .qs-valores-grid { grid-template-columns: 1fr 1fr; }
+  .directiva-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .qs-valores-grid { grid-template-columns: 1fr; }
+  .directiva-card { flex-direction: column; }
+}
